@@ -1,0 +1,21 @@
+meta {
+  name: getNotification
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:8030/notifServ/api/v1/notifications
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "subject" : "Ticket with id has been created",
+    "content" : "Ticket has been create. User is having some issue",
+    "recipientEmails" : "xyz@gmail.com, pqr@gmail.com",
+    "requester" : "Customer 1",
+    "ticketId" : "fvokoticketId"
+  }
+}

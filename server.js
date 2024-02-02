@@ -23,7 +23,7 @@ app.use(bodyParser.json({}));
 app.use(express.urlencoded({ extended: true }));
 
 // Use the authentication routes
-// app.use(ticketNotification);
+app.use(ticketNotification);
 
 
 // Connect to the database

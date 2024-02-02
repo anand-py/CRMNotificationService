@@ -30,16 +30,21 @@ const getNotificationStatus = async (req, res) => {
         })
         if (notification) {
             res.status(200).send({
-                subject: req.body.subject,
-                content: req.body.content,
-                recipientEmails: req.body.recipientEmails,
-
-                ticketId: req.body.ticketId
+                requestId : notification.ticketId,
+                subject: notification.subject,
+                content: notification.content,
+                recipientEmails: notification.recipientEmails,
+                sentStatus: notification.sentStatus
+            })
+          
+        }else{
+            res.status(400).send({
+                message : "Invalid RequestId"
             })
         }
-
+    
     } catch (err) {
-        console.log(`Erro while accepting a notification request, ${err.message}`)
+        console.log(`Error while accepting a notification request, ${err.message}`)
         res.status(500).send({
             message: "Internal Server Error"
         })
